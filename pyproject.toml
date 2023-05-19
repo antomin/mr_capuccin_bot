@@ -12,6 +12,8 @@ django = "^4.2.1"
 pillow = "^9.5.0"
 environs = "^9.5.0"
 aiogram = "^2.25.1"
+apscheduler = "^3.10.1"
+django-admin-rangefilter = "^0.10.0"
 
 
 [build-system]

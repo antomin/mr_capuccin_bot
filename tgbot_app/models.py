@@ -1,3 +1,4 @@
+from asgiref.sync import sync_to_async
 from django.db import models
 
 
@@ -10,7 +11,7 @@ class TaskType(models.Model):
     )
 
     title = models.CharField(verbose_name='название', max_length=50)
-    need_confirmation = models.BooleanField(verbose_name='подтверждение')
+    need_confirmation = models.BooleanField(verbose_name='фото подтверждение')
     time_exec = models.CharField(verbose_name='время выполнения', choices=__TIME_EXEC, max_length=10)
     created_at = models.DateTimeField(verbose_name='время создания', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='время обновления', auto_now=True)
@@ -25,12 +26,20 @@ class TaskType(models.Model):
 
 class Store(models.Model):
     title = models.CharField(verbose_name='название', max_length=50)
-    tasks = models.ManyToManyField(TaskType, verbose_name='задачи')
+    task_types = models.ManyToManyField(TaskType, verbose_name='задачи')
+    morning_time = models.TimeField(verbose_name='крайнее время для утренних задач')
+    midday_time = models.TimeField(verbose_name='крайнее время для дневных задач')
+    close_time = models.TimeField(verbose_name='время закрытия торговой точки')
     created_at = models.DateTimeField(verbose_name='время создания', auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='время обновления', auto_now=True)
 
     def __str__(self):
         return self.title
+
+    @sync_to_async
+    def get_time_exec(self, time_exec):
+        time_exec_dict = {'morning': self.morning_time, 'midday': self.midday_time, 'evening': self.close_time}
+        return time_exec_dict[time_exec]
 
     class Meta:
         verbose_name = 'торговая точка'
@@ -53,24 +62,23 @@ class Worker(models.Model):
 
 
 class WorkSession(models.Model):
+    is_open = models.BooleanField(verbose_name='открыта', default=True)
     open_time = models.DateTimeField(verbose_name='начало смена', auto_now_add=True)
     close_time = models.DateTimeField(verbose_name='окончание смены', null=True)
     worker = models.ForeignKey(Worker, verbose_name='сотрудник', on_delete=models.CASCADE)
     store = models.ForeignKey(Store, verbose_name='торговая точка', on_delete=models.CASCADE)
     comment = models.TextField(verbose_name='комментарии', blank=True)
 
+    @sync_to_async
+    def get_worker_id(self):
+        return self.worker.tgid
+
     def __str__(self):
-        return f'{self.start_time.strftime("%d.%m.%Y")} | {self.worker} | {self.store}'
+        return f'{self.open_time.strftime("%d.%m.%Y")} | {self.worker} | {self.store}'
 
     class Meta:
         verbose_name = 'смена'
         verbose_name_plural = 'смены'
 
 
-class Task(models.Model):
-    img_confirmation = models.ImageField(verbose_name='фото-подтверждение', upload_to='confirmations/')
-    img_hash = models.CharField(verbose_name='хеш подтверждения', max_length=100, null=True)
-    is_completed = models.BooleanField(verbose_name='выполнена', default=False)
-    work_session = models.ForeignKey(WorkSession, verbose_name='смена', on_delete=models.CASCADE, related_name='tasks')
-    created_at = models.DateTimeField(verbose_name='время создания', auto_now_add=True)
-    completed_at = models.DateTimeField(verbose_name='время выполнения', null=True)
+
