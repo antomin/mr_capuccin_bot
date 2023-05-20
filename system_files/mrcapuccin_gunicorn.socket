@@ -1,8 +1,8 @@
 [Unit]
-Description=chatgpt gunicorn socket
+Description=mrcapucin gunicorn socket
 
 [Socket]
-ListenStream=/run/chatgpt_gunicorn.sock
+ListenStream=/run/gunicorn.sock
 
 [Install]
 WantedBy=sockets.target
