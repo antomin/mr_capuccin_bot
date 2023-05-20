@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b6a6f21-fa86-4165-a4b5-b636a3424ce8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system_files/mrcapuccin_gunicorn.service" beforeDir="false" afterPath="$PROJECT_DIR$/system_files/mrcapuccin_gunicorn.service" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system_files/mrcapuccin_tgbot.service" beforeDir="false" afterPath="$PROJECT_DIR$/system_files/mrcapuccin_tgbot.service" afterDir="false" />
-    </list>
+    <list default="true" id="1b6a6f21-fa86-4165-a4b5-b636a3424ce8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +131,7 @@
       <workItem from="1684243347156" duration="5544000" />
       <workItem from="1684255194479" duration="6000000" />
       <workItem from="1684334210276" duration="47564000" />
-      <workItem from="1684488371751" duration="31108000" />
+      <workItem from="1684488371751" duration="31361000" />
     </task>
     <servers />
   </component>
