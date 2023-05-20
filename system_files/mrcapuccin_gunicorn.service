@@ -4,9 +4,8 @@ After=network.target
 
 [Service]
 User=mrcap
-Group=www-data
 WorkingDirectory=/home/mrcap/mr_capuccin_bot
-ExecStart=/home/mrcap/.cache/pypoetry/virtualenvs/capuccin-bot-7qdKsGep-py3.10/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/mrcap/mr_capuccin_bot/mr_capuccin_bot.sock config.wsgi
+ExecStart=/home/mrcap/.cache/pypoetry/virtualenvs/capuccin-bot-7qdKsGep-py3.10/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock config.wsgi
 
 [Install]
 WantedBy=multi-user.target
