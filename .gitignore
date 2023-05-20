@@ -132,3 +132,4 @@ dmypy.json
 media/
 .idea/
 .DS_Store/
+system_files/
