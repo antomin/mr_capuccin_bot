@@ -1,0 +1,8 @@
+[Unit]
+Description=chatgpt gunicorn socket
+
+[Socket]
+ListenStream=/run/chatgpt_gunicorn.sock
+
+[Install]
+WantedBy=sockets.target
