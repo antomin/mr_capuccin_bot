@@ -129,6 +129,4 @@ dmypy.json
 .pyre/
 
 # Custom
-.idea/
-test.py
-*.sqlite3_backup
+media

@@ -107,9 +107,9 @@ async def check_img_confirmation(message: Message, state: FSMContext):
         await message.answer(text=CONFIRMATION_TEXT, reply_markup=cancel_markup)
         return
 
-    photo = message.photo[0]
+    photo = message.photo[-1]
     path = f'{settings.MEDIA_ROOT}/confirmations/{photo.file_id}.jpg'
-    await message.photo[0].download(destination_file=path)
+    await photo.download(destination_file=path)
 
     with open(path, 'rb') as file:
         data = file.read()
@@ -122,7 +122,7 @@ async def check_img_confirmation(message: Message, state: FSMContext):
     async with state.proxy() as data:
         task_id = data.get('task_id')
 
-    await confirm_task(task_id=task_id, path_img=f'{photo.file_id}.jpg', md5_img=md5)
+    await confirm_task(task_id=task_id, path_img=f'confirmations/{photo.file_id}.jpg', md5_img=md5)
 
     markup = await gen_tasks_kb(user_id=message.from_user.id)
 

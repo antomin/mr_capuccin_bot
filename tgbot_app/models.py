@@ -17,7 +17,7 @@ class TaskType(models.Model):
     updated_at = models.DateTimeField(verbose_name='время обновления', auto_now=True)
 
     def __str__(self):
-        return self.title
+        return f'{self.title} ({self.get_time_exec_display()})'
 
     class Meta:
         verbose_name = 'задача'
@@ -79,6 +79,3 @@ class WorkSession(models.Model):
     class Meta:
         verbose_name = 'смена'
         verbose_name_plural = 'смены'
-
-
-

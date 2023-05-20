@@ -4,14 +4,10 @@ from django.contrib.auth.models import Group
 from .models import Store, TaskType, Worker
 
 
-class TaskTypeInline(admin.TabularInline):
-    model = Store.task_types.through
-
-
 @admin.register(Store)
 class StoreAdmin(admin.ModelAdmin):
-    inlines = (TaskTypeInline, )
-    exclude = ('tasks', )
+    fields = ('title', 'morning_time', 'midday_time', 'close_time', 'task_types')
+    filter_horizontal = ('task_types', )
 
 
 @admin.register(TaskType)

@@ -1,5 +1,6 @@
 from asgiref.sync import sync_to_async
 from django.db import models
+from django.utils.safestring import mark_safe
 
 from tgbot_app.models import Store, TaskType, WorkSession
 
@@ -28,6 +29,10 @@ class Task(models.Model):
     def get_store(self):
         return self.work_session.store
 
+    def preview(self):
+        return mark_safe(f'<a href="{self.img_confirmation.url}"><img src="{self.img_confirmation.url}"'
+                         f'style="max-height: 300px;"></a>')
+
     @sync_to_async
     def get_title(self):
         return self.task_type.title
@@ -37,6 +42,7 @@ class Task(models.Model):
 
     get_worker.short_description = "сотрудник"
     get_store.short_description = "торговая точка"
+    preview.short_description = 'подтверждение'
 
     class Meta:
         verbose_name = 'задание'

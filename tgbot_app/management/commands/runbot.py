@@ -1,7 +1,6 @@
-from datetime import datetime, timedelta
-
 from aiogram import Dispatcher
 from aiogram.utils import executor
+from apscheduler.triggers.cron import CronTrigger
 from django.core.management.base import BaseCommand
 
 from tgbot_app.filters import NoOpenSessions
@@ -24,8 +23,9 @@ async def on_startup(_dp: Dispatcher):
     await set_default_commands(_dp)
     await register_middlewares(_dp)
     await register_filters(_dp)
-    # scheduler.add_job(daily_report_scheduler, trigger='date', run_date=datetime.now() + timedelta(seconds=5))
-    # scheduler.add_job(weekly_report_scheduler, trigger='date', run_date=datetime.now() + timedelta(seconds=5))
+
+    scheduler.add_job(daily_report_scheduler, trigger=CronTrigger(hour='23'))
+    scheduler.add_job(weekly_report_scheduler, trigger=CronTrigger(hour='23', day_of_week='sun'))
     scheduler.start()
 
 

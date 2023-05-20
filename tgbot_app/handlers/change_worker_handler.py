@@ -7,8 +7,8 @@ from aiogram.types import CallbackQuery, Message
 from tgbot_app.keyboards import (cancel_state_kb, changing_cd,
                                  gen_start_changing_kb, gen_tasks_kb)
 from tgbot_app.loader import bot, dp
-from tgbot_app.utils.db_api import (change_work_session_worker, get_worker,
-                                    user_is_busy, get_work_session)
+from tgbot_app.utils.db_api import (change_work_session_worker,
+                                    get_work_session, get_worker, user_is_busy)
 from tgbot_app.utils.text_variables import (CHANGE_USER_BUSY_TEXT,
                                             CHANGE_USER_OK_TEXT,
                                             CHANGING_ASK_ID_TEXT,
