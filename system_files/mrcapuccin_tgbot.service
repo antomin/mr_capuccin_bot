@@ -1,0 +1,12 @@
+[Unit]
+Description= MrCapuccin tgbot daemon
+After=network.target
+
+[Service]
+User=mrcap
+Group=mrcap
+WorkingDirectory=/home/mrcap/mr_capuccin_bot
+ExecStart=/home/mrcap/.cache/pypoetry/virtualenvs/capuccin-bot-7qdKsGep-py3.10/bin/python /home/mrcap/mr_capuccin_bot/manage.py runbot
+
+[Install]
+WantedBy=multi-user.target

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b6a6f21-fa86-4165-a4b5-b636a3424ce8" name="Changes" comment="" />
+    <list default="true" id="1b6a6f21-fa86-4165-a4b5-b636a3424ce8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system_files/mrcapuccin.conf" beforeDir="false" afterPath="$PROJECT_DIR$/system_files/mrcapuccin.conf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/anton/PycharmProjects/capuccin_bot",
+    "last_opened_file_path": "/Users/anton/PycharmProjects/capuccin_bot/system_files",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
@@ -54,6 +57,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/system_files" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/tgbot_app/middlewares" />
       <recent name="$PROJECT_DIR$/tgbot_app/keyboards" />
@@ -130,7 +134,7 @@
       <workItem from="1684243347156" duration="5544000" />
       <workItem from="1684255194479" duration="6000000" />
       <workItem from="1684334210276" duration="47564000" />
-      <workItem from="1684488371751" duration="26279000" />
+      <workItem from="1684488371751" duration="28354000" />
     </task>
     <servers />
   </component>
