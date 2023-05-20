@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 # Custom
-media
-.idea
-.DS_Store
+media/
+.idea/
+.DS_Store/
