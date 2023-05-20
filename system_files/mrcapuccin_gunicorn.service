@@ -10,5 +10,3 @@ ExecStart=/home/mrcap/.cache/pypoetry/virtualenvs/capuccin-bot-7qdKsGep-py3.10/b
 
 [Install]
 WantedBy=multi-user.target
-
-/home/mrcap/.cache/pypoetry/virtualenvs/capuccin-bot-7qdKsGep-py3.10/bin/python
