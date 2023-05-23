@@ -10,7 +10,7 @@ class TaskType(models.Model):
         ('all_day', 'весь день'),
     )
 
-    title = models.CharField(verbose_name='название', max_length=50)
+    title = models.CharField(verbose_name='название', max_length=255)
     need_confirmation = models.BooleanField(verbose_name='фото подтверждение')
     time_exec = models.CharField(verbose_name='время выполнения', choices=__TIME_EXEC, max_length=10)
     created_at = models.DateTimeField(verbose_name='время создания', auto_now_add=True)

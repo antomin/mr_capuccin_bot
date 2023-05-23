@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1b6a6f21-fa86-4165-a4b5-b636a3424ce8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system_files/mrcapuccin.conf" beforeDir="false" afterPath="$PROJECT_DIR$/system_files/mrcapuccin.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +134,8 @@
       <workItem from="1684255194479" duration="6000000" />
       <workItem from="1684334210276" duration="47564000" />
       <workItem from="1684488371751" duration="33425000" />
-      <workItem from="1684590412067" duration="261000" />
+      <workItem from="1684590412067" duration="710000" />
+      <workItem from="1684599602065" duration="451000" />
     </task>
     <servers />
   </component>
