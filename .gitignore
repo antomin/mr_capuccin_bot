@@ -130,5 +130,5 @@ dmypy.json
 
 # Custom
 media/
-.idea/
-.DS_Store/
+.idea
+.DS_Store
