@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group
 
-from .models import Store, TaskType, Worker
+from .models import Store, TaskType, Worker, AdminReport
 
 
 @admin.register(Store)
@@ -19,6 +19,11 @@ class TaskTypeAdmin(admin.ModelAdmin):
 @admin.register(Worker)
 class WorkerAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'tgid')
+
+
+@admin.register(AdminReport)
+class AdminReportAdmin(admin.ModelAdmin):
+    list_display = ('tgid', 'comment')
 
 
 admin.site.site_title = 'Mr.Capuccin'

@@ -4,7 +4,7 @@ from asgiref.sync import sync_to_async
 from django.db.models import QuerySet
 
 from report_app.models import DailyReport, Task
-from tgbot_app.models import Store, Worker, WorkSession
+from tgbot_app.models import Store, Worker, WorkSession, AdminReport
 
 
 @sync_to_async
@@ -187,3 +187,9 @@ def get_weekly_task_info() -> dict:
         result[store.title]['perfect_days'] = reports.filter(is_perfect=True).count()
 
     return result
+
+
+@sync_to_async
+def get_admins():
+    admins = AdminReport.objects.all()
+    return [admin.tgid for admin in admins]
