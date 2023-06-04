@@ -144,4 +144,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts_app.CustomUser'
 
 TGBOT_TOKEN = env.str('TGBOT_TOKEN')
-ADMINS = env.list('ADMINS')

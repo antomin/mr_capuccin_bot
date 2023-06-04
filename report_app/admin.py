@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django.utils.safestring import mark_safe
 from rangefilter.filters import DateRangeFilterBuilder
 
 from report_app.models import Task
+from tgbot_app.models import WorkSession
 
 
 @admin.register(Task)
@@ -19,5 +19,7 @@ class TaskAdmin(admin.ModelAdmin):
     def has_change_permission(self, request, obj=None):
         return False
 
-    def has_delete_permission(self, request, obj=None):
-        return False
+
+@admin.register(WorkSession)
+class WorkSessionAdmin(admin.ModelAdmin):
+    pass

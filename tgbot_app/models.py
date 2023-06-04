@@ -79,3 +79,15 @@ class WorkSession(models.Model):
     class Meta:
         verbose_name = 'смена'
         verbose_name_plural = 'смены'
+
+
+class AdminReport(models.Model):
+    tgid = models.BigIntegerField(verbose_name='телеграм ID', primary_key=True)
+    comment = models.CharField(verbose_name='комментарий', max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return str(self.tgid)
+
+    class Meta:
+        verbose_name = 'администратор'
+        verbose_name_plural = 'администраторы'
