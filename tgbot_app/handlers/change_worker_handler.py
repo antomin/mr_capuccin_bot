@@ -18,8 +18,9 @@ from tgbot_app.utils.text_variables import (CHANGE_USER_BUSY_TEXT,
                                             WRONG_ID_TEXT)
 
 
-@dp.message_handler(Command('change'))
-async def start_changing(message: Message):
+@dp.message_handler(Command('change'), state='*')
+async def start_changing(message: Message, state: FSMContext):
+    await state.reset_state()
     work_session = await get_work_session(message.from_user.id)
 
     if not work_session:

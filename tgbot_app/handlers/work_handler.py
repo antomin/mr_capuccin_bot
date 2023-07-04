@@ -23,9 +23,10 @@ from tgbot_app.utils.text_variables import (CONFIRMATION_TEXT,
                                             SELECT_STORE_TEXT, START_WORK_TEXT)
 
 
-@dp.callback_query_handler(lambda callback: callback.data == 'start_work', NoOpenSessions())
-@dp.message_handler(Command('start_work'), NoOpenSessions())
-async def select_store_handler(message: Message | CallbackQuery):
+@dp.callback_query_handler(lambda callback: callback.data == 'start_work', NoOpenSessions(), state='*')
+@dp.message_handler(Command('start_work'), NoOpenSessions(), state='*')
+async def select_store_handler(message: Message | CallbackQuery, state: FSMContext):
+    await state.reset_state()
     user_id = message.from_user.id
     if isinstance(message, CallbackQuery):
         await message.answer()
@@ -49,8 +50,9 @@ async def confirm_store_handler(callback: CallbackQuery, callback_data: dict):
     await callback.answer()
 
 
-@dp.callback_query_handler(store_cd.filter(action='confirm'), NoOpenSessions())
-async def start_work_handler(callback: CallbackQuery, callback_data: dict):
+@dp.callback_query_handler(store_cd.filter(action='confirm'), NoOpenSessions(), state='*')
+async def start_work_handler(callback: CallbackQuery, callback_data: dict, state: FSMContext):
+    await state.reset_state()
     store_id = callback_data.get('store_id')
     user_id = callback.from_user.id
     store = await get_store(store_id=store_id)
@@ -71,8 +73,9 @@ async def start_work_handler(callback: CallbackQuery, callback_data: dict):
     await callback.answer()
 
 
-@dp.callback_query_handler(task_cd.filter())
+@dp.callback_query_handler(task_cd.filter(), state='*')
 async def complete_task(callback: CallbackQuery, callback_data: dict, state: FSMContext):
+    await state.reset_state()
     task_id = callback_data.get('task_id')
     task = await get_task(task_id=task_id)
 
