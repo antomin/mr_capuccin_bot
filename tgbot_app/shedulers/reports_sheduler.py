@@ -1,6 +1,7 @@
 from tgbot_app.loader import bot
 from tgbot_app.utils.common import parse_daily_result, parse_weekly_result
-from tgbot_app.utils.db_api import get_daily_task_info, get_weekly_task_info, get_admins
+from tgbot_app.utils.db_api import (get_admins, get_daily_task_info,
+                                    get_weekly_task_info)
 
 
 async def daily_report_scheduler() -> None:
