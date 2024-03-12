@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group
+from django.conf import settings
 
 from .models import AdminReport, Store, TaskType, Worker
 
@@ -26,7 +27,7 @@ class AdminReportAdmin(admin.ModelAdmin):
     list_display = ('tgid', 'comment')
 
 
-admin.site.site_title = 'Mr.Capuccin'
-admin.site.site_header = 'Mr.Capuccin'
+admin.site.site_title = settings.SITE_NAME
+admin.site.site_header = settings.SITE_NAME
 admin.site.site_url = None
 admin.site.unregister(Group)
